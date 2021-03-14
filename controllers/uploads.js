@@ -22,9 +22,9 @@ const cargarArchivo = (req = request, res = response)=>{
 
     file.mv(uploadPath, (err) => {
         if (err) {
-            return res.status(500).send(err);
+            return res.status(500).send(err, uploadPath);
         }
-
+        
         res.json({
             path: uploadPath, 
             filename: nombreUnico
